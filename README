@@ -17,10 +17,19 @@
 
    This project requires the following:
    
-   o   LLVM clang  (C Compiler)
-   o   LLVM ld.lld (Linker)
-   o   GNU Make    (Build System)
-   o   Qemu        (Machine Emulator)
+   o   LLVM clang    (C Compiler)
+   o   LLVM ld.lld   (Linker)
+   o   GNU Make      (Build System)
+   o   Qemu          (Machine Emulator)
+
+~=~=~=~=~=~=~=~=~=
+|| HOW TO BUILD ||
+~=~=~=~=~=~=~=~=~=
+
+   Assuming you have the prerequisites, you may use the following make commands:
+   o   [BUILD] make b
+   o   [RUN]   make r
+   o   [CLEAN] make c
 
 ~=~=~=~=~=~=~
 || LICENSE ||
