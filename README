@@ -11,6 +11,17 @@
    This is not intended to be a fully-featured kernel,
    just a fun toy.
 
+~=~=~=~=~=~=~=~=~=
+|| PREREQUISTES ||
+~=~=~=~=~=~=~=~=~=
+
+   This project requires the following:
+   
+   o   LLVM clang  (C Compiler)
+   o   LLVM ld.lld (Linker)
+   o   GNU Make    (Build System)
+   o   Qemu        (Machine Emulator)
+
 ~=~=~=~=~=~=~
 || LICENSE ||
 ~=~=~=~=~=~=~
