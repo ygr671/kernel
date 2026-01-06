@@ -10,7 +10,10 @@ section .multiboot
 
 section .text
 extern kmain
+
 global _start
+global outportb
+global inportb
 
 _start:
 	mov esp, stack_top
@@ -20,6 +23,17 @@ _start:
 .hang:
 	hlt
 	jmp .hang
+
+outportb:
+    mov edx, [esp + 4]
+    mov al,  [esp + 8]
+    out dx, al        
+    ret
+
+inportb:
+    mov edx, [esp + 4]
+    in al, dx         
+    ret	
 
 section .bss
 align 16
