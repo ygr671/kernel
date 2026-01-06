@@ -17,7 +17,15 @@ kmain ()
    print (name, 0x0F);
    print ("!\n", 0x0F);
 
+   char command[256] = {0};
    while (1)
       {
+	print ("# ", 0x0F);
+
+        read_kbd (command, 256);
+
+        print ("Your command: ", 0x0F);
+        print (command, 0x0F);
+	print("\n", 0xF);
       }
 }
