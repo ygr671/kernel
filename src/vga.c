@@ -3,28 +3,30 @@
 
 volatile u16 *vga_buffer = (u16 *)0xB8000;
 
+u32 cursor = 0;
+
 void
 print (const char *s, u8 colour)
 {
-  int index = 0;
-   for (int i = 0; s[index] != '\0'; i++)
+   for (int i = 0; s[i] != '\0'; i++)
       {
-         switch (s[index])
+         switch (s[i])
             {
             case '\t':
-               vga_buffer[index] = 0 << 8 | 9;
+               {
+                  cursor += 4;
+               }
                break;
             case '\n':
-               for (int j = i; j % 79 != 0; j++)
-                  {
-                     vga_buffer[j] = 0 << 8 | 10;
-		     i++;
-                  }
-	       break;
+               {
+                  cursor = ((cursor / 80) + 1) * 80 - 1;
+               }
+               break;
             default:
-               vga_buffer[i] = (u16)colour << 8 | s[index];
+               vga_buffer[cursor] = (u16)colour << 8 | s[i];
+               break;
             }
-	 index++;
+         cursor++;
       }
 }
 
