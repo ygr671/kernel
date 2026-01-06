@@ -7,8 +7,8 @@ LDOPTS  = -m elf_i386 -T linker.ld
 
 BUILD   = build/
 
-C_SOURCES = $(wildcard *.c)
-C_OBJECTS = $(patsubst %.c, $(BUILD)%.o, $(C_SOURCES))
+C_SOURCES = $(wildcard src/*.c)
+C_OBJECTS = $(patsubst src/%.c, $(BUILD)%.o, $(C_SOURCES))
 
 ASM_OBJECTS = $(BUILD)boot.o
 
@@ -24,7 +24,7 @@ $(BUILD)boot.o: boot.asm
 
 $(BUILD)%.o: %.c
 	@echo "BUILDING $<..."
-	$(CC) $(CCOPTS) -c $< -o $@
+	$(CC) $(CCOPTS) -c src$< -o $@
 
 $(BUILD):
 	@mkdir -p $(BUILD)
