@@ -57,6 +57,7 @@ read_kbd (char *buffer, u32 buffer_size)
 {
    int is_reading = 1;
    u8 i           = 0;
+   u32 saved_vga_cursor_pos = vga_cursor;
 
    while (is_reading)
       {
@@ -83,7 +84,8 @@ read_kbd (char *buffer, u32 buffer_size)
                      /* backspace key */
                   case 14:
                      {
-                        if (vga_cursor > 0)
+
+                        if (vga_cursor > 0 && vga_cursor != saved_vga_cursor_pos)
                            {
                               vga_cursor--;
                            }
